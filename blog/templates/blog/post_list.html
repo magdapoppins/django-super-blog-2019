@@ -9,10 +9,11 @@
     <body>
         <div>
             <h1><a href="/">Girls Computer Club</a></h1>
-        </div>
+		</div>
+		<img src="{% static 'images/asd.jpg' %}" width=200>
 		{% for post in posts %}
-			<div>
-				<p>{{ post.created_date }}</p>
+			<div class="blogpost">
+				<p class="date">{{ post.created_date }}</p>
 				<h1>{{ post.title }}</h1>
 				<p>{{ post.text|linebreaksbr }}</p>
 			</div>
