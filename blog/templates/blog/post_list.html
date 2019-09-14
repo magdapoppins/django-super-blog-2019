@@ -1,27 +1,21 @@
+{% load static %}
 <html>
     <head>
-        <title>Girls Computer Club</title>
-    </head>
+		<title>Girls Computer Club</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+	</head>
     <body>
         <div>
             <h1><a href="/">Girls Computer Club</a></h1>
         </div>
-		<ol>
-			<li>First post</li>
-			<li>First post</li>
-			<li>First post</li>
-			<li>First post</li>
-		</ol>
-        <div>
-			<h2><a href="">My first post</a></h2>
-            <p><em>published: 14.06.2014, 12:14</em></p>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-
-        <div>
-			<h2><a href="">My second post</a></h2>
-            <p>published: 14.06.2014, 12:14</p>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
+		{% for post in posts %}
+			<div>
+				<p>{{ post.created_date }}</p>
+				<h1>{{ post.title }}</h1>
+				<p>{{ post.text|linebreaksbr }}</p>
+			</div>
+		{% endfor %}
     </body>
 </html>
